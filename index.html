@@ -872,7 +872,7 @@ function atualizarAvisoMemoria(tamanhoMB, falhouAoSalvar) {
     if (!banner) banner = criarBannerMemoria();
     banner.innerHTML = `⚠️ <b>Não foi possível salvar — memória do dispositivo cheia (${tamanhoMB.toFixed(1)}MB).</b>
       Exporte o JSON agora para não perder os dados, e evite tirar mais fotos nesta sessão.`;
-    banner.style.display = 'flex';
+    banner.style.display = 'sticky';
     banner.style.background = 'rgba(220,38,38,.12)';
     banner.style.borderColor = 'rgba(220,38,38,.35)';
     banner.style.color = '#7f1d1d';
@@ -884,7 +884,7 @@ function atualizarAvisoMemoria(tamanhoMB, falhouAoSalvar) {
     if (!banner) banner = criarBannerMemoria();
     banner.innerHTML = `⚠️ <b>Memória quase cheia (${tamanhoMB.toFixed(1)}MB).</b>
       Considere exportar o JSON em breve para garantir que nada se perca.`;
-    banner.style.display = 'flex';
+    banner.style.display = 'sticky';
     banner.style.background = 'rgba(217,119,6,.12)';
     banner.style.borderColor = 'rgba(217,119,6,.35)';
     banner.style.color = '#78350f';
@@ -904,7 +904,6 @@ function criarBannerMemoria() {
     banner.style.fontSize = '12.5px';
     banner.style.lineHeight = '1.4';
     banner.style.border = '1px solid';
-    banner.style.display = 'none';
     banner.style.textAlign = 'center';
 
     document.getElementById('banner-container').appendChild(banner);
