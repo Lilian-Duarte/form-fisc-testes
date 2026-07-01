@@ -2054,6 +2054,7 @@ function continuarDeJson(input) {
           ts:   instJson.timestamp_captura,
         };
         S.municipio.instalacoes.push(novaInst);
+        salvar();
       }
 
       (instJson.respostas || []).forEach(r => {
