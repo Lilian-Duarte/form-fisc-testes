@@ -2043,6 +2043,19 @@ function continuarDeJson(input) {
         };
       }
 
+      if (instId.includes("NOVA")){
+        const novaInst = {
+          id: instJson.id,
+          nome: instJson.nome,
+          tipo: instJson.tipo,
+          nova: true,      // marcador para identificar no import
+          lat:  instJson.lat_capturada,
+          lon:  instJson.lon_capturada,
+          ts:   instJson.timestamp_captura,
+        };
+        S.municipio.instalacoes.push(novaInst);
+      }
+
       (instJson.respostas || []).forEach(r => {
         const k = key(instId, r.codigo);
         S.respostas[k] = r.resposta;
