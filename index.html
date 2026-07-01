@@ -896,6 +896,15 @@ function atualizarConn() {
 window.addEventListener('online', atualizarConn);
 window.addEventListener('offline', atualizarConn);
 
+// Aviso antes de recarregar/fechar a página acidentalmente
+window.addEventListener('beforeunload', function(e) {
+  // Só avisa se já há dados preenchidos na sessão
+  const temDados = S.municipio || Object.keys(S.respostas || {}).length > 0;
+  if (temDados) {
+    e.preventDefault();
+    e.returnValue = ''; // obrigatório para o Chrome exibir o diálogo
+  }
+});
 
 // ================================================================
 // CÂMERA — captura e armazena fotos por item
